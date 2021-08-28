@@ -69,7 +69,7 @@ process_bead_doublet <- function(cell_type_info, gene_list, UMI_tot, bead, class
   cell_type_profiles = cell_type_profiles * UMI_tot
   cell_type_profiles = data.matrix(cell_type_profiles)
   
-  QL_score_cutoff = 5; doublet_like_cutoff = 25
+  QL_score_cutoff = 7.5; doublet_like_cutoff = 25
   print(QL_score_cutoff)
   results_all = decompose_full(cell_type_profiles, UMI_tot, bead, constrain = constrain, verbose = verbose, MIN_CHANGE = MIN.CHANGE)
   all_weights <- results_all$weights
