@@ -68,7 +68,9 @@ process_bead_doublet <- function(cell_type_info, gene_list, UMI_tot, bead, class
   cell_type_profiles <- cell_type_info[[1]][gene_list,]
   cell_type_profiles = cell_type_profiles * UMI_tot
   cell_type_profiles = data.matrix(cell_type_profiles)
-  QL_score_cutoff = 10; doublet_like_cutoff = 25
+  
+  QL_score_cutoff = 5; doublet_like_cutoff = 25
+  print(QL_score_cutoff)
   results_all = decompose_full(cell_type_profiles, UMI_tot, bead, constrain = constrain, verbose = verbose, MIN_CHANGE = MIN.CHANGE)
   all_weights <- results_all$weights
   conv_all <- results_all$converged
@@ -139,6 +141,7 @@ process_bead_multi <- function(cell_type_info, gene_list, UMI_tot, bead, class_d
   cell_type_profiles = cell_type_profiles * UMI_tot
   cell_type_profiles = data.matrix(cell_type_profiles)
   QL_score_cutoff = 10; doublet_like_cutoff = 25
+  print(QL_score_cutoff)
   results_all = decompose_full(cell_type_profiles, UMI_tot, bead, constrain = constrain, verbose = verbose, MIN_CHANGE = MIN.CHANGE)
   all_weights <- results_all$weights
   conv_all <- results_all$converged
